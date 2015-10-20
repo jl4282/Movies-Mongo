@@ -11,7 +11,12 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 app.get('/movies', function(req, res){
-  Movie.find({}, function(err, movies, count){
+  var query = {};
+  var director = req.query.director;
+  if (director){
+    query = {director: director};
+  }
+  Movie.find(query, function(err, movies, count){
     res.render('movies', {movies: movies});
   });
 });
