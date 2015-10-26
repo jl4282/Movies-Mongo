@@ -4,7 +4,7 @@
     <th>Year</th>
     <th>Director</th>
   </tr>
-  {{#each movies}}
+  {{#each movies}} {{!-- display the movies --}}
     <tr>
       <td>{{this.title}}</td>
       <td>{{this.year}}</td>
@@ -12,6 +12,7 @@
     </tr>
   {{/each}}
 </table>
+{{!-- take input to search for things --}}
 <form method="GET" action="/movies">
   <input type="text" name="director">
   <input type="submit">
