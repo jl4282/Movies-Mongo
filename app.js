@@ -10,6 +10,12 @@ var Movie = mongoose.model('Movie');
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+//logging
+app.use(function(req, res, next){
+  console.log(req.method, req.path);
+  next();
+});
+
 //set a homepage
 app.get('/', function(req, res){
   res.render('home');
